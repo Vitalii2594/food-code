@@ -11,3 +11,4 @@ import './js/templates/modal-product.js';
 import './js/footer.js';
 import './js/templates/renderSorryMessage.js';
 import './js/cards-actions.js';
+import './js/form-order.js';
