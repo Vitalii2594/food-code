@@ -229,10 +229,7 @@ function openModalOrder(event) {
   event.preventDefault();
   let buyProduct = localStorageAPI.load('product');
 
-  document.body.insertAdjacentHTML(
-    'afterbegin',
-    createMarkupOrderModal(buyProduct)
-  );
+  document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal(buyProduct));
 }
 
 function createMarkupOrderModal(product) {
@@ -254,10 +251,7 @@ document.body.addEventListener('click', closeOrderModal);
 
 function closeOrderModal(event) {
   const orderBackdrop = document.querySelector('.order-backdrop');
-  if (
-    event.target.closest('.order-close-icon') ||
-    event.target.classList.contains('order-backdrop')
-  ) {
+  if (event.target.closest(".order-close-icon") || event.target.classList.contains("order-backdrop")) {
     orderBackdrop.classList.add('is-hidden');
 
     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
@@ -265,3 +259,4 @@ function closeOrderModal(event) {
     getLength();
   }
 }
+

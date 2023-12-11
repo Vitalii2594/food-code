@@ -1,44 +1,44 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { order } from './api.js';
 import localStorageAPI from './localStorage.js';
 
-document.addEventListener('DOMContentLoaded', function () {
-  const input = document.querySelector('.datetime'); // Вибір елементу для ініціалізації flatpickr
-  const orderForm = document.querySelector('.cart-form'); // Вибір форми замовлення
+const input = document.querySelector('.datetime');
 
-  const options = {
+const options = {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
-  };
+}
 
-  flatpickr(input, options); // Ініціалізація flatpickr для вибору дати та часу
+flatpickr(input, options);
 
-  orderForm.addEventListener('submit', async function (event) {
-    event.preventDefault(); // Заборона стандартної поведінки форми
+   document.addEventListener('DOMContentLoaded', function () {
+     const orderButton = document.querySelector('.cart-order-info-btn');
 
-    const mail = document.getElementById('mail').value; // Отримання значення електронної пошти з поля вводу
+     orderButton.addEventListener('submit', function (event) {
+       event.preventDefault();
+       const mail = document.getElementById('mail').value;
 
-    const orderData = {
-      mail,
-    };
+       const order = {
+         mail,
+       };
 
-    console.log(orderData); // Виведення даних замовлення в консоль для перевірки
+         console.log(order);
+       localStorageAPI.save('lastOrder', order);
+     });
+   });
+      
 
-    try {
-      // Виклик функції order для відправки замовлення на сервер
-      // const response = await order(orderData);
-      // console.log('Order sent successfully:', response);
 
-      // Збереження email в localStorage після відправки замовлення
-      localStorageAPI.save('lastOrder', orderData);
 
-      // Перевірка, чи електронна пошта записалася в localStorage
-      const savedOrder = localStorageAPI.load('lastOrder');
-      console.log('Email saved in localStorage:', savedOrder);
-    } catch (error) {
-      console.error('Error sending order:', error);
-    }
-  });
-});
+// const orderButton = document.querySelector('.cart-order-info-btn');
+// const modale = document.querySelector('.order-backdrop');
+// const isHidden = document.querySelector('.is-hidden');
+// isHidden.style.display = 'none';
+
+// orderButton.addEventListener('click', () => {
+//     modale.classList.toggle('is-hidden');
+// });
+

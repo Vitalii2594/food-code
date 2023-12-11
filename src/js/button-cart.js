@@ -1,6 +1,6 @@
 import { getProducttById } from './api.js';
-import { onRenderModalProduct, onClickCloseModal, onClickOutModalProduct, onEscapeCloseModal, closeModal, addToCartTheProduct } from './templates/modal-product.js';
-import { addToCartFromModal } from './homePage.js';
+import { onRenderModalProduct, onClickCloseModal, onClickOutModalProduct, onEscapeCloseModal, closeModal, addToCartTheProduct } from './model/modal-products.js';
+import { addToCartFromModal } from './main-page.js';
 
 export async function openProductModal(event) {
 
