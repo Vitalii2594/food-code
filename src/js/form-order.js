@@ -15,26 +15,25 @@ const options = {
 flatpickr(input, options);
 
 document.addEventListener('DOMContentLoaded', function () {
-  const orderButton = document.querySelector('.cart-order-info-btn');
+  const orderForm = document.querySelector('.cart-form');
 
-  orderButton.addEventListener('submit', function (event) {
+  orderForm.addEventListener('submit', async function (event) {
     event.preventDefault();
     const mail = document.getElementById('mail').value;
 
-    // const orderData = {
-    //   mail,
-    // };
+    const orderData = {
+      mail,
+    };
 
-    console.log(order);
-    localStorageAPI.save('lastOrder', order);
+    console.log(orderData);
+    localStorageAPI.save('lastOrder', orderData);
+
+    try {
+      // Виклик функції order для відправки замовлення на сервер
+      const response = await order(orderData);
+      console.log('Order sent successfully:', response);
+    } catch (error) {
+      console.error('Error sending order:', error);
+    }
   });
 });
-
-// const orderButton = document.querySelector('.cart-order-info-btn');
-// const modale = document.querySelector('.order-backdrop');
-// const isHidden = document.querySelector('.is-hidden');
-// isHidden.style.display = 'none';
-
-// orderButton.addEventListener('click', () => {
-//     modale.classList.toggle('is-hidden');
-// });
