@@ -1,5 +1,5 @@
 import flatpickr from 'flatpickr';
-import '/node_modules/flatpickr/dist/flatpickr.min.css';
+import 'flatpickr/dist/flatpickr.min.css';
 import localStorageAPI from './localStorage.js';
 
 const input = document.querySelector('.datetime');
