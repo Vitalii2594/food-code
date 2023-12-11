@@ -12,7 +12,7 @@ const container = document.querySelector('#tui-pagination-container');
 const options = {
   itemsPerPage: 1,
   visiblePages: 4,
-  page: 5,
+  page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -24,14 +24,14 @@ const options = {
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </a>`,
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
     disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </span>`,
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
   },
 };
 
