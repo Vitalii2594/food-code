@@ -29,8 +29,8 @@ const options = {
       </span>
       </span>`,
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '<span class="tui-ico-ellip">...</span>' +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '</a>',
   },
 };
