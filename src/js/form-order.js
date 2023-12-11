@@ -1,6 +1,5 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import { order } from './api.js'; // Імпорт функції order для відправки замовлення на сервер
 import localStorageAPI from './localStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     try {
       // Виклик функції order для відправки замовлення на сервер
-      const response = await order(orderData);
-      console.log('Order sent successfully:', response);
+      // const response = await order(orderData);
+      // console.log('Order sent successfully:', response);
 
       // Збереження email в localStorage після відправки замовлення
       localStorageAPI.save('lastOrder', orderData);
