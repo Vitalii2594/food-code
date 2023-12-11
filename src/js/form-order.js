@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     const mail = document.getElementById('mail').value;
 
-    const order = {
-      mail,
-    };
+    // const orderData = {
+    //   mail,
+    // };
 
     console.log(order);
     localStorageAPI.save('lastOrder', order);
