@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Boutique</title>
+    
+    <script type="module" crossorigin src="/food-code/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/food-code/assets/vendor-d873ffc3.js">
+    <link rel="modulepreload" crossorigin href="/food-code/assets/footer-a316bc8b.js">
+    <link rel="stylesheet" href="/food-code/assets/vendor-f90250d9.css">
+    <link rel="stylesheet" href="/food-code/assets/footer-7990deaf.css">
+  </head>
+  <body>
+    <header class="header-page">
+    <div class="container header-page-container">
+      <nav class="header-page-navigation">
+          <ul class="header-list">    
+                  <li class="header-first-elements">
+                  <a class="header-logotype" href="./index.html">
+                      <svg
+                      class="header-logotype-icon"
+                      width="28"
+                      height="28"
+                      aria-label="Food Boutique logotype icon"
+                      >
+                      <use href="/food-code/assets/icons-400335bf.svg#icon-cabbage"></use></svg><span>Food Boutique</span>
+                  </a>
+                  </li>
+                  <li class = "header-second-elements"
+                  ><a class="header-home-ref" href="./index.html">Home</a></li>
+                  <li class = "header-third-elements">
+                  <a class="header-shopping-card-link" href="./cart.html">
+                      <svg
+                      class="header-logotype-icon-card"
+                      width="38"
+                      height="38"
+                      aria-label="header-shopping-card"
+                      >
+                      <use href="/food-code/assets/icons-400335bf.svg#icon-shopping-cart"></use>
+                      </svg>
+                      <p class="hidden">CART (<span id="header-length"></span>)</p>
+                  </a>
+                  </li>     
+            </ul>
+      </nav>
+    </div>
+  </header>
+
+    <main>
+      <section class="section-cart" id="section-cart">
+  <div class="container posrel">
+    <h2 class="cart-title">
+      <svg class="cart-icon-shopping">
+        <use href="/food-code/assets/icons-400335bf.svg#icon-shopping-cart"></use>
+      </svg>
+      Cart (<span class="cart-number-purchases">3</span>)
+    </h2>
+    <div class="delete-all-box">
+      <p class="delete-all-text">Delete all</p>
+      <svg class="delete-all-icon" width="24" height="24">
+        <use href="/food-code/assets/icons-400335bf.svg#icon-close"></use>
+      </svg>
+    </div>
+
+    <div class="cart-content">
+      <ul class="cart-shopping-list cart-products">
+       
+      </ul>
+
+      <div class="cart-order">
+        <h3 class="cart-title-your-order">Your Order</h3>
+        <div class="cart-total-price-box">
+          <p class="cart-total-price-text">Total</p>
+          <div>
+            <span class="cart-total-price-sum">Sum: $</span>
+            <span class="cart-total-price-number js-total-price"></span>
+          </div>
+        </div>
+        <form action="#" class="cart-form">
+          <p class="cart-order-info-text">Enter your details for the order</p>
+          <input class="cart-order-info-input" type="email" name="email" id="mail" placeholder="Mail: Enter your email" required
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" />
+          <button class="cart-order-info-btn cart-form-bt" type="submit" aria-label="сheckout">
+            Checkout
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- <div class="cart-order-info">
+      <form class="cart-order-info-form"></form>
+    </div> -->
+
+    <!--  js markup create
+      
+      <div class="cart-empty">
+      <img
+        class="cart-empty-img"
+        src="./images/tomatoes.jpg"
+        alt="Empty cart"
+      />
+      <p class="cart-empty-text">
+        Your basket is <a href="#" class="cart-empty-link">empty...</a>
+      </p>
+      <p class="cart-empty-description">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div> -->
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer-section ">
+    <div class="container">
+        <div class="footer-l-r">
+            <div class="footer-left">
+                <div class="footer-logo-wrapper">
+                    <a class="footer-logo-link" href="./index.html">
+                        <svg class="footer-logo-icon" >
+                            <use href="/food-code/assets/icons-400335bf.svg#icon-cabbage"></use>
+                        </svg>
+                        <span class="footer-logo-span">Food Boutique</span>
+                      </a>
+                </div>
+                <div class="footer-soc-wrapper">
+                    <ul class="footer-soc-list">
+                        <li class="footer-soc-item">
+                            <a href="https://www.facebook.com/goITclub/" class="footer-soc-link" target="_blank" rel="noreferrer noopener">
+                                <svg class="footer-soc-svg" height="40" width="40">
+                                    <use href = "/food-code/assets/icons-400335bf.svg#icon-facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer-soc-item">
+                            <a href="https://www.instagram.com/goitclub/" class="footer-soc-link" target="_blank" rel="noreferrer noopener">
+                                <svg class="footer-soc-svg" height="40" width="40">
+                                    <use href = "/food-code/assets/icons-400335bf.svg#icon-instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="footer-soc-item">
+                            <a href="https://www.youtube.com/c/GoIT" class="footer-soc-link" target="_blank" rel="noreferrer noopener">
+                                <svg class="footer-soc-svg" height="40" width="40">
+                                    <use href = "/food-code/assets/icons-400335bf.svg#icon-youtube"></use>
+                                </svg>
+                            </a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+              <div class="footer-right">
+                  <div class="footer-text-wrapper">
+                      <h2 class="footer-title">Discover the Variety of Flavors and Quality</h2>
+                      <p class="footer-text">An online store where you will find fresh, natural and delicious products for a healthy life and unforgettable gastronomic adventures.</p>
+                  </div>
+                  <div class="footer-form-wrapper">
+                      <h3 class="footer-form-title">Subscribe and learn about new products!</h3>
+                      <form class="footer-form">
+                        <label class="footer-form-label">
+                            <input
+                              class="footer-form-input"
+                              type="email"
+                              placeholder="Email"
+                              id="user-email"
+                              required
+                            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                            />
+                          </label>
+                          <button type="submit" class="footer-form-btn">Send</button>
+                      </form>
+                  </div>
+              </div>
+        </div>
+          <div class="footer-privacy-wrapper">
+              <p class="footer-subtitle">Food Boutique. All rights reserved.</p>
+              <div class="footer-privacy-right">
+                  <a href="#" class="footer-privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                  <span class="footer-span">/</span>
+                  <a href="#" class="footer-terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+              </div>
+          </div>
+    </div>      
+</footer>
+
+    <div class="order-backdrop is-hidden">
+    <div class="order-modal">
+        <svg class="order-close-icon">
+            <use href="/food-code/assets/icons-400335bf.svg#icon-close"></use>
+        </svg>
+        <img class="order-image" src="data:image/jpeg;base64,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" alt="order-image">
+        <h2 class="order-title">Order success</h2>
+        <p class="order-text">Thank you for shopping at Food Boutique. Your order has been received and is now being freshly prepared just for you! Get ready to indulge in nourishing goodness, delivered right to your doorstep. We're thrilled to be part of your journey to better health and happiness.</p>
+    </div>
+</div>
+
+    
+  </body>
+</html>
