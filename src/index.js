@@ -1,14 +1,13 @@
 import './js/api.js';
 import './js/localStorage.js';
-import './js/main-page.js';
+import './js/homePage.js';
 import './js/header.js';
-
-import './js/add-to-the-cart';
-import './js/button-cart';
+import './js/drop-downs.js';
+import './js/addToCart.js';
+import './js/card-button.js';
 import './js/pagination.js';
-import './js/model/cards';
-import './js/model/modal-products';
+import './js/templates/cards.js';
+import './js/templates/modal-product.js';
 import './js/footer.js';
-import './js/model/sorry';
-import './js/actions-cards';
-import './js/form-order.js';
+import './js/templates/renderSorryMessage.js';
+import './js/cards-actions.js';

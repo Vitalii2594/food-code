@@ -1,10 +1,10 @@
 import Pagination from 'tui-pagination';
 import { getProductsByQuery } from './api.js';
-import { renderMarkup } from './model/cards.js';
-import { collectQueryParameters } from './filters.js';
-import { renderSorryMessage } from './model/sorry.js';
-import { openProductModal } from './button-cart.js';
-import { saveToLocalStorage } from './add-to-the-cart.js';
+import { renderMarkup } from './templates/cards.js';
+import { collectQueryParameters } from './drop-downs.js';
+import { renderSorryMessage } from './templates/renderSorryMessage.js';
+import { openProductModal } from './card-button.js';
+import { saveToLocalStorage } from './addToCart.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
@@ -29,8 +29,8 @@ const options = {
       </span>
       </span>`,
     moreButton:
-      '<span class="tui-ico-ellip">...</span>' +
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
 };

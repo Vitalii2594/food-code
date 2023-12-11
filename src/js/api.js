@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getFilter} from './filters.js';
+import {getFilter} from './drop-downs.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 //запит на бекенд про категорії товарів

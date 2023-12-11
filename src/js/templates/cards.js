@@ -1,5 +1,5 @@
 import iconsPath from '../../images/icons.svg';
-import { arrProducts } from '../main-page.js';
+import { arrProducts } from '../homePage.js';
 
 export function createProductCard(product) {
   let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;

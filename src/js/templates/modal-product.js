@@ -1,7 +1,7 @@
 // import { getProducttById } from '../api.js';
 // import { save, load, remove } from '../localStorage.js';
-// import {firstLoad, saveToLocalStorage} from '../add-to-the-cart.js';
-import {arrProducts} from '../main-page.js';
+// import {firstLoad, saveToLocalStorage} from '../addToCart.js';
+import {arrProducts} from '../homePage.js';
 
 
 import pathToSvg from '../../images/icons.svg';

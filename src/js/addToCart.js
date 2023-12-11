@@ -1,7 +1,8 @@
+// import {arrProducts} from "./homePage.js"
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
 import {getLength} from './header.js'
-import { arrProducts } from './main-page.js';
+import { arrProducts } from './homePage.js';
 
 
 

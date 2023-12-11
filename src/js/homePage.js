@@ -8,7 +8,7 @@ import {
   changeTypesValue,
   collectQueryParameters,
   renderCategoryList,
-} from './filters.js';
+} from './drop-downs.js';
 import {
   getProductsByQuery,
   getAllProducts,
@@ -17,11 +17,11 @@ import {
   getProducttById,
   getCategories,
 } from './api.js';
-import { renderMarkup } from './model/cards.js';
-import { openProductModal } from './button-cart.js';
-import { saveToLocalStorage } from './add-to-the-cart.js';
+import { renderMarkup } from './templates/cards.js';
+import { openProductModal } from './card-button.js';
+import { saveToLocalStorage } from './addToCart.js';
 import localStorageAPI from './localStorage.js';
-import { renderSorryMessage } from './model/sorry.js';
+import { renderSorryMessage } from './templates/renderSorryMessage.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
