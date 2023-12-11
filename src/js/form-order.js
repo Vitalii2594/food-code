@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     console.log(orderData);
-    localStorageAPI.save('lastOrder', orderData);
+    localStorageAPI.save('lastOrder', 'mail');
 
     try {
       // Виклик функції order для відправки замовлення на сервер
