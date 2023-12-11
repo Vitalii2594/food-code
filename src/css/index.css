@@ -1,0 +1,17 @@
+@import url('./base/normalize.css');
+@import url('./base/reset.css');
+@import url('./utils/variables.css');
+@import url('./base/common.css');
+@import url('./base/container.css');
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
+@import url('./layout/filters.css');
+@import url('./layout/products-list.css');
+@import url('./layout/pagination.css');
+@import url('./layout/body-cart.css');
+@import url('./layout/scroll-to-up.css');
+@import url('./layout/footer.css');
+@import url('./layout/modal-product.css');
+@import url('./layout/modal-order.css');
+@import url('./layout/sorryMessage.css');
+@import url('./layout/slider.css');

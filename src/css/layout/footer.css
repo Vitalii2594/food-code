@@ -1,0 +1,327 @@
+.footer-section {
+    background-color:var(--secondary-bg-green-color);
+    color:var(--primary-bg-color) ;
+}
+.footer-logo-wrapper{
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.footer-logo-link{
+    color: var(--primary-bg-color);
+    font-family: "Quincy CF";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 20px; 
+    letter-spacing: -0.36px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.footer-logo-icon{
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+   background-color: var(--primary-bg-color);
+    border-radius: 50%;
+     fill: var(--secondary-bg-green-color);
+     padding: 6px; 
+     transition: all 0.3s;
+}
+.footer-logo-icon:hover,
+.footer-logo-icon:focus{
+    fill:var(--primary-bg-color);
+    background-color:var(--secondary-bg-green-color) ;
+    border: 1px solid var(--primary-bg-color);
+}
+.footer-soc-wrapper{
+  padding-bottom: 40px;  
+}
+.footer-soc-list {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-soc-svg {
+    fill: var(--primary-bg-color);
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--footer-border-color);
+}
+.footer-soc-svg:hover,
+.footer-soc-svg:focus {
+    background: var(--footer-bg-color);
+    border-radius: 10px;
+}
+
+.footer-title {
+font-size: 24px;
+font-weight: 500;
+line-height: 1.2;
+margin-bottom: 14px;
+}
+.footer-text-wrapper{
+    padding-bottom: 80px;
+}
+.footer-text {
+    color: var(--footer-second-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+}
+.footer-form-wrapper{
+    margin-bottom: 80px;
+}
+.footer-form-title {
+    color:var(--primary-bg-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+    margin-bottom: 20px;
+}
+
+.footer-form-input {
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid var(--primary-bg-color);
+    width: 100%;
+    margin-bottom: 14px;
+    background-color: transparent;
+    
+}
+.footer-form-input::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; 
+    color: var(--footer-color); 
+    font-size: 16px;
+    font-family: 'Neue Montreal Regular';
+  }
+.footer-form-btn{
+    color:var(--title-black-text-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29; /* 128.571% */
+    padding: 12px 149px;
+    border-radius: 30px;
+    background-color:var(--primary-bg-color);
+    border: none;
+    width: 100%;
+}
+.footer-form-btn:hover,
+.footer-form-btn:focus{
+    color: var(--secondary-bg-green-color);
+}
+.footer-privacy-wrapper{
+    padding-bottom: 80px;
+}
+.footer-subtitle{
+font-size: 14px;
+font-weight: 400;
+line-height: 1.29; /* 128.571% */
+margin-bottom: 8px;
+}
+.footer-privacy {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    margin-right: 8px;
+    display: inline-block;
+    transition: all 0.3s;
+    
+}
+.footer-privacy:hover,
+.footer-privacy:focus{
+    transform: scale(1.1);
+}
+.footer-span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    margin-right: 8px;
+}
+.footer-terms {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    display: inline-block;
+    transition: all 0.3s;
+    
+}
+.footer-terms:hover,
+.footer-terms:focus{
+    transform: scale(1.1);
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .footer-form-input{
+        width: 335px;
+    }
+    .footer-form-btn{
+        width: 335px;
+    }
+
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .container {
+        max-width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    
+    }
+    .footer-logo-link{
+    font-size: 24px;
+    }
+    .footer-logo-icon{
+        width: 32px;
+        height: 32px;
+    }
+    .footer-l-r{
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-right{
+        width: 427px;
+    }
+    .footer-title {
+        margin-bottom: 20px;
+        font-size: 40px;
+        line-height: 1.1; /* 110% */
+        letter-spacing: -0.08px
+ 
+        }
+    .footer-text-wrapper{
+        padding-bottom: 64px;
+        padding-top: 40px;
+    }
+        .footer-text{
+            font-size: 18px;
+            line-height: 1.33em; /* 133.333% */
+        }
+        .footer-form-wrapper{
+            margin-bottom: 120px;
+        }
+        .footer-form-title {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.33em; /* 133.333% */
+        }
+        .footer-form-input { 
+            margin-bottom: 20px;
+        }
+         .footer-form-input::placeholder {
+            font-family: 'Neue Montreal Regular';
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5; 
+            color: var(--footer-color); 
+            font-size: 16px;
+            font-family: 'Neue Montreal Regular';
+          }
+         .footer-form-btn{
+            font-size: 16px;
+            line-height: 1.5;
+         }
+        .footer-privacy-wrapper{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0;
+        }
+        .footer-subtitle{
+            margin-bottom: 20px;
+        }
+            
+  }
+  @media only screen and (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    .footer-logo-link{
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 24px; /* 100% */
+    letter-spacing: -0.48px;
+    }
+    .footer-soc-list {
+        display: flex;
+        gap: 12px;
+    }
+    .footer-soc-svg {
+        width: 44px;
+        height: 44px;
+    }
+    .footer-l-r{
+        display: flex;
+
+    }
+    .footer-left{
+        padding-right: 78px;
+    }
+  
+    .footer-title {
+        font-weight: 500;
+        margin-bottom: 20px;
+        font-size: 40px;
+        line-height: 1.1; /* 110% */
+        letter-spacing: -0.02em;
+        }
+        .footer-text-wrapper{
+            padding-top: 40px;
+            width: 410px;
+        }
+        .footer-text{
+            font-size: 18px;
+            line-height: 1.33em; /* 133.333% */
+        }
+        .footer-right{
+            display: flex;
+            gap: 148px;
+        }
+
+        .footer-form-wrapper{
+            margin-top: 40px;
+            width: 336px;
+            margin-bottom: 0;
+        }
+        .footer-form-title {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.33em; /* 133.333% */
+        }
+        .footer-form-input {
+            
+            color: var(--footer-color);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5; 
+            padding: 12px 18px;
+            border-radius: 30px;
+            border: 1px solid var(--primary-bg-color);
+            width: 335px;
+            margin-bottom: 20px;
+            
+         }
+         .footer-form-btn{
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+
+        .footer-privacy-wrapper{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 128px;
+            padding-bottom: 0;
+        }
+        .footer-subtitle{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.29; /* 128.571% */
+            margin-bottom: 20px;
+            }
+
+  
+}    

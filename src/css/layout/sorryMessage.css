@@ -1,0 +1,32 @@
+.sorry-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: row;
+    gap: 12px;
+}
+.sorry-message-text {
+    color: var(--title-black-text-color);
+    font-family: 'Neue Montreal Medium';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+}
+.emoji-sorry {
+    font-size: 36px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .sorry-wrapper {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    .sorry-message-text {
+        font-size: 14px;
+        line-height: 1.1;
+    }
+  }

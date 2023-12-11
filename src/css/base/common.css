@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+  @font-face {
+    font-family: "Neue Montreal Medium";
+    src: url("../../fonts/PPNeueMontreal-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Neue Montreal Regular";
+    src: url("../../fonts/PPNeueMontreal-Book.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+   @font-face {
+    font-family: "Quincy CF";
+    src: url("../../fonts/QuincyCF-Black.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Neue Montreal Regular";
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--title-black-text-color);
+}
+
+input {
+  width: 100%;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

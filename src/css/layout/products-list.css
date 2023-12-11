@@ -1,0 +1,705 @@
+body {
+  overflow-x: hidden;
+}
+::-webkit-scrollbar,
+::-webkit-scrollbar:horizontal {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal {
+  background: var(--primary-bg-green-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: var(--secondary-bg-green-color);
+}
+
+.product-card-general {
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+  background-color: var(--card-bg-color);
+  transition: transform .2s;
+}
+
+.product-card-general:hover {
+  box-shadow: 0px 85px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
+}
+
+.product-list {
+  padding-top: 22px;
+}
+
+.products-list-general {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.product-card-general {
+  width: 100%;
+  border-radius: 20px;
+  row-gap: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 1) {
+  animation-delay: 0s;
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 2) {
+  animation-delay: 0.5s;
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 3) {
+  animation-delay: 1s;
+}
+
+.img-wrapper {
+  padding: 20px;
+}
+.card-img {
+  padding: 19px 78px;
+  border-radius: 10px;
+  background-color: #e8e8e2;
+}
+.general-span-info {
+  color: var(--span-info-color);
+  font-family: 'Neue Montreal Regular';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+}
+.general-card-title {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.4;
+  padding-left: 20px;
+  margin-bottom: 3px;
+}
+.general-span-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.span-info-value {
+  color: var(--title-black-text-color);
+
+  font-family: 'Neue Montreal Regular';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.general-card-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 20px 20px 16px;
+}
+.general-span-price {
+  display: block;
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-weight: 500;
+  font-size: 18px;
+  padding-left: 4px;
+  line-height: 1.11;
+}
+
+.addToCart-btn {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--secondary-bg-green-color);
+  border: none;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-svg {
+  fill:  var(--white-color);
+}
+
+/**
+    |============================
+    | products-list-popular
+    |============================
+  */
+.products-list-popular {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  margin-bottom: 81px;
+}
+
+.popular-product-card {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 12px;
+  background-color: var(--card-bg-color);
+  position: relative;
+
+  right: -50px;
+  opacity: 0;
+  transform: translateX(50px); 
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+    right: -50px;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    right: 0;
+  }
+}
+
+.popular-product-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.popular-product-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.popular-product-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.popular-product-card:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.popular-product-card:nth-child(5) {
+  animation-delay: 2s;
+
+}
+
+
+.popular-product-card:hover {
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
+}
+
+.popular-card-btn {
+  position: absolute;
+  top: 12%;
+  right: 3%;
+
+  border-radius: 50%;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--primary-bg-color);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--secondary-bg-green-color);
+
+}
+
+.popular-card-btn:hover,
+.popular-card-btn:focus {
+  background-color: var(--secondary-bg-green-color);
+  fill: var(--primary-bg-color);
+}
+
+.popular-title {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-size: 24px;
+  line-height: 1.16;
+  margin-bottom: 20px;
+}
+
+.poppular-img-wrapper {
+  width: 74px;
+  height: 74px;
+  padding: 9px;
+  border-radius: 10px;
+  background-color: var(--primary-bg-color);
+}
+.popular-card-img {
+  padding: 9px;
+  width: 56px;
+}
+.popular-card-info {
+  width: 184px;
+}
+.popular-card-title {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.11;
+
+  margin-bottom: 10px;
+}
+
+.popular-span-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 9px;
+}
+.popular-span-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  color: var(--span-info-color);
+  font-family: 'Neue Montreal Regular';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+.popular-cart-svg {
+  width: 100%;
+}
+
+/**
+    |============================
+    | products-list-discount
+    |============================
+  */
+.products-list-discount {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+  height: 485px;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-bottom: 80px;
+}
+
+.discount-title {
+  color: #010101;
+  font-family: 'Neue Montreal Medium';
+  font-size: 24px;
+  /* font-weight: 500; */
+  line-height: 1.16;
+
+  margin-bottom: 20px;
+}
+.discount-product-card {
+  cursor: pointer;
+  width: 100%;
+  height: 232px;
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  padding: 16px;
+  transition: transform .2s;
+}
+.discount-product-card:hover {
+  box-shadow: 0px 17px 52px rgba(0, 0, 0, 0.05),  0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
+}
+.discount-img-wrapper {
+  padding: 18px 95px;
+  position: relative;
+  display: block;
+  background: var(--primary-bg-color);
+  border-radius: 10px;
+  margin-bottom: 23px;
+}
+
+.discount-svg-icon {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+}
+.discount-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discount-card-title {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+}
+
+.discount-card-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.span-price {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+}
+
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+  .general-span-container {
+    padding-left: 20px;
+    justify-content: start;
+    padding-right: 20px;
+  }
+  .products-list-general {
+    width: 335px;
+  }
+  .products-list-discount {
+    width: 328px;
+    height: 470px;
+  }
+  .product-card-general {
+    width: 100%;
+  }
+  .discount-product-card {
+    width: 315px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .product-list {
+    padding-bottom: 100px;
+  }
+
+  .products-list-general {
+    width: 704px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 50px;
+  }
+  .products-list-general:nth-child(2) {
+    gap: 0px;
+  }
+
+  .product-card-general {
+    width: 336px;
+    border-radius: 20px;
+  }
+
+  .img-wrapper {
+    padding: 20px;
+  }
+
+  .general-card-title {
+    color: var(--title-black-text-color);
+    font-family: 'Neue Montreal Medium';
+    font-size: 20px;
+    line-height: 1.11;
+
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .general-span-container {
+    display: flex;
+    gap: 8px;
+    padding-left: 20px;
+    justify-content: start;
+  }
+  .general-card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px 20px 20px;
+  }
+  .general-span-price {
+    color: var(--title-black-text-color);
+    font-family: 'Neue Montreal Medium';
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .addToCart-btn {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: var(--secondary-bg-green-color);
+    border: none;
+  }
+  .cart-svg {
+    fill: var(--card-bg-color);
+  }
+
+  /* *
+    |============================
+    | products-list-popular
+    |============================
+  */
+
+  .products-list-popular {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 16px;
+    margin-bottom: 64px;
+    padding-bottom: 10px;
+
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 115px;
+    width: 600px;
+  }
+  .popular-product-card {
+    width: 450px;
+  }
+
+  .popular-title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+
+  .popular-card-img {
+    padding: 9px;
+    width: 56px;
+  }
+  .popular-card-info {
+    width: 180px;
+  }
+  .popular-card-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  /**
+    |============================
+    | products-list-discount
+    |============================
+  */
+
+  .products-list-discount {
+    column-gap: 32px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 250px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .discount-title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+  .discount-product-card {
+    width: 336px;
+    padding: 16px 16px 21px 16px;
+  }
+
+  .discount-img-wrapper {
+    margin-bottom: 21px;
+    
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .product-list {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .product-list-container {
+    display: flex;
+    column-gap: 40px;
+  }
+  .products-list-general {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 925px;
+    padding-top: 12px;
+    row-gap: 40px;
+    column-gap: 20px;
+
+  }
+
+  .product-card-general {
+    width: 295px;
+    height: 363px;
+  }
+
+  .card-img {
+    padding: 19px 57px;
+  }
+
+  .general-card-container {
+    width: 250px;
+  }
+
+  .general-span-info {
+    /* display: inline-block;
+    margin-right: 8px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  .general-card-title {
+    font-size: 20px;
+    line-height: 1.12;
+    margin-bottom: 10px;
+  }
+  .general-span-container {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: start;
+    width: 240px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 8px;
+  }
+  .general-card-price {
+    padding: 0 20px 20px 20px;
+  }
+  .general-span-price {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .addToCart-btn {
+    padding: 8px;
+    gap: 10px;
+    background: var(--secondary-bg-green-color);
+    border: none;
+  }
+  .addToCart-btn:hover,
+  .addToCart-btn:focus {
+    background-color: var(--primary-bg-green-color);
+  }
+
+  /* *
+        |============================
+        | products-list-popular
+        |============================
+      */
+
+  .container-popular-discount {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+  }
+
+  .products-list-popular {
+    height: 604px;
+    row-gap: 13px;
+    padding-bottom: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+  .popular-product-card {
+    /* width: calc((100% - 16) / 2); */
+    width: 275px;
+  }
+
+  .popular-title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+
+  .popular-span-container {
+    row-gap: 3px;
+  }
+
+
+
+  /**
+        |============================
+        | products-list-discount
+        |============================
+      */
+
+  .products-list-discount {
+    row-gap: 20px;
+    flex-wrap: nowrap;
+    height: 485px;
+    width: 333px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .discount-title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+  .discount-product-card {
+    width: 275px;
+    padding: 16px 16px 21px 16px;
+  }
+  .discount-card-title {
+    font-size: 20px;
+  }
+
+  .span-price {
+    font-size: 20px;
+  }
+  .discount-img-wrapper {
+    margin-bottom: 12px;
+    padding: 23px 69px 22px 69px;
+  }
+
+  .discount-svg-icon {
+    top: -19px;
+    right: -6px;
+  }
+}
+
+/* Discount additional */
+.general-discount-svg {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  display: none;
+}
+.discount-label {
+  display: block;
+}
