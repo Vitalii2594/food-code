@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Збереження email в localStorage після відправки замовлення
       localStorageAPI.save('lastOrder', orderData);
+
+      // Перевірка, чи електронна пошта записалася в localStorage
+      const savedOrder = localStorageAPI.load('lastOrder');
+      console.log('Email saved in localStorage:', savedOrder);
     } catch (error) {
       console.error('Error sending order:', error);
     }
