@@ -18,7 +18,6 @@ const options = {
   lastItemClassName: 'tui-last-child',
   template: {
     firstButton: '<a href="#" class="tui-page-btn tui-first-child">[<]</a>',
-
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
@@ -28,19 +27,17 @@ const options = {
     disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}</span>
       </span>`,
-
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
-
     lastButton: '<a href="#" class="tui-page-btn tui-last-child">[>]</a>',
   },
 };
 
 const pagination = new Pagination(container, options);
 
-//Callback to switch between pages
+// Callback to switch between pages
 const paginationClick = async event => {
   const currentPage = event.page;
   console.log(currentPage);
@@ -74,7 +71,7 @@ const paginationClick = async event => {
 };
 pagination.on('afterMove', paginationClick);
 
-//Callback to update pagination with new values
+// Callback to update pagination with new values
 const paginationUpdate = async event => {
   try {
     const queryParameters = collectQueryParameters();
@@ -94,3 +91,55 @@ document.addEventListener('DOMContentLoaded', paginationUpdate);
 
 const searchForm = document.querySelector('.filters-form');
 searchForm.addEventListener('submit', paginationUpdate);
+
+// елементи пагінації
+const paginationElements = document.createElement('div');
+paginationElements.classList.add('pagination-elements');
+
+const prevPage = document.createElement('a');
+prevPage.href = '#';
+prevPage.classList.add('pagination-link');
+prevPage.textContent = '<';
+paginationElements.appendChild(prevPage);
+
+const page1 = document.createElement('a');
+page1.href = '#';
+page1.classList.add('pagination-link');
+page1.textContent = '1';
+paginationElements.appendChild(page1);
+
+const ellipsis1 = document.createElement('span');
+ellipsis1.classList.add('pagination-ellipsis');
+ellipsis1.textContent = '...';
+paginationElements.appendChild(ellipsis1);
+
+const page2 = document.createElement('a');
+page2.href = '#';
+page2.classList.add('pagination-link');
+page2.textContent = '2';
+paginationElements.appendChild(page2);
+
+const ellipsis2 = document.createElement('span');
+ellipsis2.classList.add('pagination-ellipsis');
+ellipsis2.textContent = '...';
+paginationElements.appendChild(ellipsis2);
+
+const page3 = document.createElement('a');
+page3.href = '#';
+page3.classList.add('pagination-link');
+page3.textContent = '3';
+paginationElements.appendChild(page3);
+
+const page4 = document.createElement('a');
+page4.href = '#';
+page4.classList.add('pagination-link');
+page4.textContent = '4';
+paginationElements.appendChild(page4);
+
+const nextPage = document.createElement('a');
+nextPage.href = '#';
+nextPage.classList.add('pagination-link');
+nextPage.textContent = '>';
+paginationElements.appendChild(nextPage);
+
+container.appendChild(paginationElements);
