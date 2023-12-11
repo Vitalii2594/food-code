@@ -2,21 +2,21 @@
   display: none;
   position: fixed;
   width: 2rem;
-  height: 2rem; 
+  height: 2rem;
   font-weight: 600;
-   right: 7vw; 
-  bottom: 5vw; 
+  right: 7vw;
+  bottom: 5vw;
   animation: up-down 10s ease infinite;
   border-radius: 50%;
   transition: opacity 1s ease-in-out;
   transform: translateY(0px);
   z-index: 9999;
- 
-  fill: var(--primary-bg-green-color); 
+
+  fill: var(--primary-bg-green-color);
   border: none;
-  background-color:#e8e8e2a8;
+  background-color: #e8e8e2a8;
   box-shadow: 0 0.25rem 0.5rem 0 var(--primary-bg-green-color);
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   transition-duration: 1s;
 }
 @media screen and (min-width: 768px) {
@@ -29,22 +29,21 @@
 
 .scroll-to-up-btn:hover,
 .scroll-to-up-btn:focus {
-    fill: var(--secondary-bg-green-color); 
-    background: var(--primary-bg-color); 
-    box-shadow: inset 0px 20px 15px 6px #95b151a1, -1px 0px 15px 5px #95b151;
-    opacity: 1;
-  transition-duration: .7s;
-  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  fill: var(--secondary-bg-green-color);
+  background: var(--primary-bg-color);
+  box-shadow: inset 0px 20px 15px 6px #95b151a1, -1px 0px 15px 5px #95b151;
+  opacity: 1;
+  transition-duration: 0.7s;
+  animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .scroll-to-up-svg {
   display: flex;
-    align-items: center;
-    justify-content: center; 
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin: auto;
 }
-
 
 @media only screen and (min-width: 320px) and (max-width: 375px) {
   .scroll-to-up-svg {
@@ -55,30 +54,29 @@
 
 @media only screen and (min-width: 376px) and (max-width: 767px) {
   .scroll-to-up-svg {
-    width:18px;
+    width: 18px;
     height: 18px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .scroll-to-up-svg {
-    width:24px;
+    width: 24px;
     height: 24px;
   }
 }
-  @keyframes slide-in-bottom {
-    0% {
-        transform: translateY(10px);
-        opacity: 0;
-      }
-      25% {
-        transform: translateY(-5px);
-      }
-      50% {
-        transform: translateY(0px);
-      }
-      100% {
-        transform: translateY(10px);
-       
-      }
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
   }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}

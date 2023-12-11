@@ -56,6 +56,32 @@ body {
   border-radius: 20px;
   row-gap: 20px;
   opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 1) {
+  animation-delay: 0s;
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 2) {
+  animation-delay: 0.5s;
+}
+
+.products-list-general.animation .product-card-general:nth-of-type(3n + 3) {
+  animation-delay: 1s;
 }
 
 .img-wrapper {

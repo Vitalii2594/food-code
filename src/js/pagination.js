@@ -20,16 +20,15 @@ const options = {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-
     moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </a>`,
-    ellipsis: '<span class="tui-ico-ellip">...</span>', // шаблон для розділювача
     disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </span>`,
+    ellipsis: '<span class="tui-ico-ellip">...</span>', // шаблон для розділювача
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' + '</a>',
   },
