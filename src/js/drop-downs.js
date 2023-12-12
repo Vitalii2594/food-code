@@ -68,18 +68,22 @@ export function changeTypesValue(event) {
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
 }
-
+//////
 export function collectQueryParameters() {
   const filterSearch = document
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
     .join('');
-  const category = document
-    .querySelector('.filters-categories')
-    .textContent.split(' ')
-    .join('_')
-    .replace('/', '&');
+
+  const categoryElement = document.querySelector('.filters-categories');
+  const categoryText = categoryElement.textContent.trim();
+  const category =
+    categoryText.toLowerCase() === 'allproducts'
+      ? ''
+      : categoryText.split(' ').join('_').replace('/', '&');
+
   const searchWord = document.querySelector('.filters-input').value;
+
   const queryParameters = {
     category,
     keyword: searchWord,
@@ -97,6 +101,8 @@ export function collectQueryParameters() {
   localStorageAPI.save('queryParams', paramsForBack);
   return queryParameters;
 }
+
+/////
 
 //визначення фільтра
 export function getFilter(arg) {
