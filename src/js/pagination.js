@@ -14,8 +14,8 @@ const options = {
   visiblePages: 4,
   page: 1,
   centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
+  // firstItemClassName: 'tui-first-child',
+  // lastItemClassName: 'tui-last-child',
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
