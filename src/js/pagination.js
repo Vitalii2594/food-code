@@ -8,7 +8,6 @@ import { saveToLocalStorage } from './addToCart.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
-
 const options = {
   itemsPerPage: 1,
   visiblePages: 4,
@@ -17,24 +16,68 @@ const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </a>`,
-    disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </span>`,
-    ellipsis: <span class="tui-ico-ellips">...</span>,
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' + '</a>',
+    page: createPageLink,
+    currentPage: createCurrentPage,
+    moveButton: createMoveButton,
+    disabledMoveButton: createDisabledMoveButton,
+    moreButton: createMoreButton,
   },
 };
 
 const pagination = new Pagination(container, options);
+
+function createPageLink(page) {
+  const link = document.createElement('a');
+  link.href = '#';
+  link.classList.add('tui-page-btn');
+  link.textContent = page;
+  return link;
+}
+
+function createCurrentPage(page) {
+  const strong = document.createElement('strong');
+  strong.classList.add('tui-page-btn', 'tui-is-selected');
+  strong.textContent = page;
+  return strong;
+}
+
+function createMoveButton(type) {
+  const link = document.createElement('a');
+  link.href = '#';
+  link.classList.add('icon', 'tui-page-btn', `tui-${type}`);
+
+  const span = document.createElement('span');
+  span.classList.add(`tui-ico-${type}`);
+  span.textContent = type;
+
+  link.appendChild(span);
+  return link;
+}
+
+function createDisabledMoveButton(type) {
+  const span = document.createElement('span');
+  span.classList.add('tui-page-btn', 'tui-is-disabled', `tui-${type}`);
+
+  const innerSpan = document.createElement('span');
+  innerSpan.classList.add(`tui-ico-${type}`);
+  innerSpan.textContent = type;
+
+  span.appendChild(innerSpan);
+  return span;
+}
+
+function createMoreButton(type) {
+  const span = document.createElement('span');
+  span.classList.add('tui-ico-ellip');
+  span.textContent = '...';
+
+  const link = document.createElement('a');
+  link.href = '#';
+  link.classList.add('tui-page-btn', `tui-${type}-is-ellip`);
+  link.appendChild(span);
+
+  return link;
+}
 
 //Callback to switch between pages
 const paginationClick = async event => {
