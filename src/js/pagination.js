@@ -9,33 +9,52 @@ import { saveToLocalStorage } from './add-to-the-cart.js';
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
 
-const options = {
-  itemsPerPage: 1,
-  visiblePages: 4,
-  page: 1,
-  centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </a>`,
-    disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </span>`,
-    moreButton:
-      '<a href="#"  class="tui-page-btn-el tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+const calculateVisiblePages = () => {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth <= 767) {
+    return 2;
+  } else {
+    return 4;
+  }
 };
 
-const pagination = new Pagination(container, options);
+const createPagination = () => {
+  const options = {
+    itemsPerPage: 1,
+    visiblePages: calculateVisiblePages(),
+    page: 1,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
+        <span class="tui-ico-{{type}}">{{type}}
+        </span>
+        </a>`,
+      MoveButton: `<span class="tui-page-btn  tui-{{type}}">
+        <span class="tui-ico-{{type}}">{{type}}
+        </span>
+        </span>`,
+      moreButton:
+        '<a href="#"  class="tui-page-btn-el tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
+
+  return new Pagination(container, options);
+};
+
+let pagination = createPagination();
+
+window.addEventListener('resize', () => {
+  pagination.destroy();
+  pagination = createPagination();
+});
 
 //Callback to switch between pages
 const paginationClick = async event => {

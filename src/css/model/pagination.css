@@ -15,7 +15,6 @@
 }
 @media only screen and (min-width: 768px) {
   #tui-pagination-container.tui-pagination {
-    /* margin-top: 25px; */
     margin-bottom: 50px;
     gap: 8px;
     justify-content: space-between;
@@ -26,7 +25,7 @@
   #tui-pagination-container.tui-pagination {
     width: 568px;
     height: 40px;
-    /* margin-top: 20px; */
+
     margin-bottom: 41px;
   }
 }
@@ -174,7 +173,7 @@
   }
 }
 
-/* @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .tui-pagination .tui-prev {
     margin-right: 80px;
   }
@@ -182,7 +181,7 @@
   .tui-pagination .tui-next {
     margin-left: 80px;
   }
-} */
+}
 
 .tui-pagination .tui-ico-first {
   width: 11px;
@@ -266,13 +265,13 @@
   vertical-align: top;
 }
 
-.tui-first {
+/* .tui-first {
   display: none !important;
 }
 
 .tui-last {
   display: none !important;
-}
+} */
 
 /* .tui-next-is-ellip {
   display: none !important;
