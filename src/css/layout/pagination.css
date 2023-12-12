@@ -177,16 +177,6 @@
   }
 }
 
-/* @media only screen and (min-width: 768px) {
-  .tui-pagination .tui-prev {
-    margin-right: 80px;
-  }
-
-  .tui-pagination .tui-next {
-    margin-left: 80px;
-  }
-} */
-
 .tui-pagination .tui-ico-first {
   width: 11px;
   height: 10px;
@@ -277,9 +267,9 @@
   display: none !important;
 }
 
-.tui-next-is-ellip {
+/* .tui-next-is-ellip {
   display: none !important;
-}
+} */
 
 .tui-prev-is-ellip {
   display: none !important;
