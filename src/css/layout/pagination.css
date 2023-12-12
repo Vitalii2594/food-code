@@ -9,7 +9,10 @@
   margin-left: auto;
   margin-right: auto;
 }
-
+.tui-page-btn-el {
+  padding-top: 10px;
+  pointer-events: none;
+}
 @media only screen and (min-width: 768px) {
   #tui-pagination-container.tui-pagination {
     /* margin-top: 25px; */
@@ -78,7 +81,7 @@
   }
 }
 
-#tui-pagination-container.tui-pagination .tui-page-btn:hover {
+#tui-pagination-container.tui-pagination .tui-page:hover {
   background-color: var(--secondary-bg-green-color);
   color: var(--title-white-text-color);
 }
