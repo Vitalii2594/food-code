@@ -52,7 +52,6 @@ const createPagination = () => {
 let pagination = createPagination();
 
 window.addEventListener('resize', () => {
-  pagination.destroy();
   pagination = createPagination();
 });
 
