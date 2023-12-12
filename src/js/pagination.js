@@ -23,15 +23,15 @@ const options = {
     moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
-      '<span class="tui-ico-ellip">...</span>',
       </a>`,
-
     disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </span>`,
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' + '</a>',
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
   },
 };
 
