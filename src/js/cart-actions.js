@@ -121,19 +121,6 @@ function renderCartProduct(product) {
     </li>
       `;
 }
-
-/// фільтрація
-export function filterProductsByCategory(category) {
-  const filteredProducts = cartProducts.filter(product => {
-    return category === 'All' || product.category === category;
-  });
-
-  renderCarts(filteredProducts);
-  calculatePrice();
-}
-
-////
-
 /* рендер пустої корзини*/
 function renderCartEmpty() {
   return `
