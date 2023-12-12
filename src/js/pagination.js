@@ -9,9 +9,9 @@ import { saveToLocalStorage } from './addToCart.js';
 const productsListGeneral = document.querySelector('.products-list-general');
 
 const options = {
-  itemsPerPage: 1,
+  itemsPerPage,
   visiblePages: 4,
-  page: 1,
+  page: currentPage,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
