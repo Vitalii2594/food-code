@@ -35,7 +35,7 @@ const createPagination = () => {
         <span class="tui-ico-{{type}}">{{type}}
         </span>
         </a>`,
-      MoveButton: `<span class="tui-page-btn  tui-{{type}}">
+      disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
         <span class="tui-ico-{{type}}">{{type}}
         </span>
         </span>`,

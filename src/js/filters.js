@@ -102,6 +102,18 @@ export function collectQueryParameters() {
     filterSearch: `by${filterSearch}`,
   };
 
+  // Перевірка, чи поточні параметри відмінні від збережених
+  const savedParams = localStorageAPI.load('queryParams');
+  if (
+    savedParams &&
+    savedParams.category === queryParameters.category &&
+    savedParams.keyword === queryParameters.keyword &&
+    savedParams.filterSearch === queryParameters.filterSearch
+  ) {
+    // Повернення null, якщо параметри збігаються
+    return null;
+  }
+
   // Формування об'єкту для збереження у локальне сховище
   const paramsForBack = {
     category,
