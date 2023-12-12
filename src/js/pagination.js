@@ -12,7 +12,7 @@ const container = document.querySelector('#tui-pagination-container');
 const options = {
   itemsPerPage: 1,
   visiblePages: 4,
-  page: 1,
+  page: 2,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
