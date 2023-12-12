@@ -3,9 +3,13 @@ import localStorageAPI from './localStorage.js';
 // відмалювання списку категорій
 
 export function renderCategoryList(list) {
-  const listOfCategory = list.map(item => {
+  // Додаємо категорію "AllProducts" до списку
+  const updatedList = [...list, 'AllProducts'];
+
+  const listOfCategory = updatedList.map(item => {
     return `<li class="filters-categories-item">${item}</li>`;
   });
+
   document
     .querySelector('.filters-categories-list')
     .insertAdjacentHTML(
