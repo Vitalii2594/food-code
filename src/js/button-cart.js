@@ -4,7 +4,7 @@ import {
   onClickCloseModal,
   onClickOutModalProduct,
   onEscapeCloseModal,
-} from './templates/modal-product.js';
+} from './model/modal-product.js';
 import { addToCartFromModal } from './homePage.js';
 
 export async function openProductModal(event) {

@@ -1,5 +1,5 @@
 import './js/header.js';
-import './js/cart-actions.js';
+import './js/actions-cart.js';
 import './js/localStorage.js';
-import './js/form-order.js';
+import './js/order-forms.js';
 import './js/footer.js';
