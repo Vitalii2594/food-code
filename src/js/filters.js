@@ -2,19 +2,20 @@ import localStorageAPI from './localStorage.js';
 
 // Відмалювання списку категорій
 export function renderCategoryList(list) {
-  // Додаємо категорію "AllProducts" до списку
-  const updatedList = [...list, 'All'];
+  // Додаємо категорію "Show all" до списку
+  const updatedList = [...list, 'Show all'];
 
   const listOfCategory = updatedList.map(item => {
     return `<li class="filters-categories-item" data-category="${item}">${item}</li>`;
   });
 
-  document
-    .querySelector('.filters-categories-list')
-    .insertAdjacentHTML(
-      'beforeend',
-      listOfCategory.join('').replaceAll('_', ' ')
-    );
+  const listElement = document.querySelector('.filters-categories-list');
+  listElement.insertAdjacentHTML(
+    'beforeend',
+    listOfCategory.join('').replaceAll('_', ' ')
+  );
+
+  console.log('Rendered Category List:', listOfCategory);
 }
 
 // Управління дропдаунами
@@ -37,29 +38,49 @@ export function rotateButton(event) {
     list.classList.add('list-active');
   }
 }
+// Функція для автоматичного натискання кнопки пошуку
+/* Цю функцію можна перенести до іншого файлу і зробити експорт та імпорт */
+function triggerSearchButton() {
+  // Знаходження кнопки пошуку натискання на неї
+  const searchButton = document.querySelector('.filters-search-btn');
+  if (searchButton) {
+    searchButton.click();
+  }
+}
+/* Кінець функції */
 
 export function changeCategoriesValue(event) {
   const input = document.querySelector('.filters-categories');
   const list = document.querySelector('.filters-categories-list');
   const newValue = event.target.textContent;
 
+  // Зміна значення введення та деактивація списку та стрілки
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
+
+  // Автоматично натискати кнопку пошуку
+  triggerSearchButton();
 }
 
 export function changeTypesValue(event) {
+  // Отримання елементів та нового значення типу
   const input = document.querySelector('.filters-allTypes');
   const list = document.querySelector('.filters-allTypes-list');
   const newValue = event.target.textContent;
 
+  // Зміна значення введення та деактивація списку та стрілки
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
+
+  // Автоматично натискати кнопку пошуку
+  triggerSearchButton();
 }
 
 // Збір параметрів запиту
 export function collectQueryParameters() {
+  // Отримання значень фільтрів, категорій та ключового слова
   const filterSearch = document
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
@@ -74,12 +95,14 @@ export function collectQueryParameters() {
 
   const searchWord = document.querySelector('.filters-input').value;
 
+  // Формування об'єкту з параметрами запиту
   const queryParameters = {
     category,
     keyword: searchWord,
     filterSearch: `by${filterSearch}`,
   };
 
+  // Формування об'єкту для збереження у локальне сховище
   const paramsForBack = {
     category,
     keyword: searchWord,
@@ -88,12 +111,16 @@ export function collectQueryParameters() {
     limit: 9,
   };
 
+  // Збереження параметрів у локальне сховище
   localStorageAPI.save('queryParams', paramsForBack);
+
+  // Повернення об'єкту параметрів
   return queryParameters;
 }
 
 // Визначення фільтра
 export function getFilter(arg) {
+  // Визначення фільтра залежно від отриманого аргументу
   let filter;
   switch (arg) {
     case 'byAtoZ':
@@ -114,10 +141,14 @@ export function getFilter(arg) {
     case 'byNotpopular':
       filter = 'byPopularity=true';
       break;
+    case 'Show all':
+      filter = '';
+      break;
     default:
       filter = 'byABC=true';
       break;
   }
 
+  // Повернення значення фільтра
   return filter;
 }
