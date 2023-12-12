@@ -1,4 +1,4 @@
-/* #tui-pagination-container.tui-pagination {
+#tui-pagination-container.tui-pagination {
   height: 40px;
   display: flex;
   gap: 4px;
@@ -12,6 +12,7 @@
 
 @media only screen and (min-width: 768px) {
   #tui-pagination-container.tui-pagination {
+    /* margin-top: 25px; */
     margin-bottom: 50px;
     gap: 8px;
     justify-content: space-between;
@@ -22,7 +23,7 @@
   #tui-pagination-container.tui-pagination {
     width: 568px;
     height: 40px;
-
+    /* margin-top: 20px; */
     margin-bottom: 41px;
   }
 }
@@ -111,8 +112,7 @@
 .tui-pagination .tui-prev,
 .tui-pagination .tui-next,
 .tui-pagination .tui-last,
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
+.tui-pagination .tui-prev-is-ellip {
   overflow: hidden;
   height: 26px;
   padding: 0;
@@ -127,10 +127,6 @@
 
 .tui-pagination .tui-prev-is-ellip {
   border-right: 0;
-}
-
-.tui-pagination .tui-next-is-ellip {
-  border-left: 0;
 }
 
 .tui-pagination .tui-first + .tui-prev,
@@ -150,8 +146,7 @@
   font-size: 0px;
 }
 
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
+.tui-pagination .tui-prev-is-ellip {
   padding: 0;
   line-height: 1;
 }
@@ -175,6 +170,16 @@
     margin-left: 45px;
   }
 }
+
+/* @media only screen and (min-width: 768px) {
+  .tui-pagination .tui-prev {
+    margin-right: 80px;
+  }
+
+  .tui-pagination .tui-next {
+    margin-left: 80px;
+  }
+} */
 
 .tui-pagination .tui-ico-first {
   width: 11px;
@@ -203,7 +208,7 @@
 .tui-pagination .tui-ico-ellip {
   width: 10px;
   height: 2px;
-  margin-top: 16px;
+  margin-top: 10px;
   vertical-align: top;
   background-position: 0px -24px;
 }
@@ -266,9 +271,9 @@
   display: none !important;
 }
 
-.tui-next-is-ellip {
+/* .tui-next-is-ellip {
   display: none !important;
-}
+} */
 
 .tui-prev-is-ellip {
   display: none !important;
@@ -319,4 +324,4 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cpath d='M10.5 8L14.5 12L10.5 16' stroke='%23A3A3A3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-} */
+}

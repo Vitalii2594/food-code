@@ -1,38 +1,42 @@
 // import { getProducttById } from '../api.js';
 // import { save, load, remove } from '../localStorage.js';
 // import {firstLoad, saveToLocalStorage} from '../addToCart.js';
-import {arrProducts} from '../homePage.js';
-
+import { arrProducts } from '../homePage.js';
 
 import pathToSvg from '../../images/icons.svg';
 
- export function onClickCloseModal() {
-    const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
-    modalProductBackdrop.remove();
+export function onClickCloseModal() {
+  const modalProductBackdrop = document.querySelector(
+    '.modal-product-backdrop'
+  );
+  modalProductBackdrop.remove();
+  modalProductBackdrop.classList.add('is-hidden');
+  document.body.classList.remove('is-overflow-hidden');
+}
+
+export function onEscapeCloseModal(event) {
+  const modalProductBackdrop = document.querySelector(
+    '.modal-product-backdrop'
+  );
+  if (event.key === 'Escape') {
+    onClickCloseModal();
     modalProductBackdrop.classList.add('is-hidden');
-    document.body.classList.remove('is-overflow-hidden');
-  };
+  }
+}
 
- export function onEscapeCloseModal (event) {
-    const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
-    if(event.key === 'Escape') {
-      onClickCloseModal();
-      modalProductBackdrop.classList.add('is-hidden');
-    }
-  };
-
- export function onClickOutModalProduct(event) {
-    const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
-    if(event.target === modalProductBackdrop) {
-        onClickCloseModal();
-        modalProductBackdrop.classList.remove('is-hidden');
-    }
-  } 
+export function onClickOutModalProduct(event) {
+  const modalProductBackdrop = document.querySelector(
+    '.modal-product-backdrop'
+  );
+  if (event.target === modalProductBackdrop) {
+    onClickCloseModal();
+    modalProductBackdrop.classList.remove('is-hidden');
+  }
+}
 
 export function onRenderModalProduct(product) {
-    
-    let { name, category, desc, img, price, size, popularity, _id } = product;
-    const isInCart = arrProducts.some(product => product.id === _id);
+  let { name, category, desc, img, price, size, popularity, _id } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
 
   return `
           <div class="modal-product-backdrop" data-modal>
