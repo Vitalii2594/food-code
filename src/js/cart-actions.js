@@ -123,7 +123,7 @@ function renderCartProduct(product) {
 }
 
 /// фільтрація
-function filterProductsByCategory(category) {
+export function filterProductsByCategory(category) {
   const filteredProducts = cartProducts.filter(product => {
     return category === 'All' || product.category === category;
   });

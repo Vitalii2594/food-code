@@ -1,93 +1,108 @@
+// import 'tui-pagination/dist/tui-pagination.css';
 import Pagination from 'tui-pagination';
-import { getProductsByQuery } from './api.js';
-import { renderMarkup } from './templates/cards.js';
-import { collectQueryParameters } from './drop-downs.js';
-import { renderSorryMessage } from './templates/renderSorryMessage.js';
-import { openProductModal } from './card-button.js';
-import { saveToLocalStorage } from './addToCart.js';
+import { fetchAndRender } from '/js/products.js';
+import { filterProductsByCategory } from './';
 
-const productsListGeneral = document.querySelector('.products-list-general');
-const container = document.querySelector('#tui-pagination-container');
+export { funcPagination, loadMoreTrendMoves, pages };
 
-const options = {
-  itemsPerPage: 1,
-  visiblePages: 4,
-  page: 2,
-  centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </a>`,
-    disabledMoveButton: `<span class="tui-page-btn tui-is-disabled tui-{{type}}">
-      <span class="tui-ico-{{type}}">{{type}}>
-      </span>
-      </span>`,
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
+const FILTER = 'filter';
+
+const refs = {
+  paginationDop: document.querySelector('.your-custom-paginationDop-class'),
+  pagination: document.querySelector('.your-custom-tui-pagination-class'),
+  list: document.querySelector('.your-custom-product-list-class'),
+  // select: document.querySelector('.your-custom-select-class'),
+  search: document.querySelector('#your-custom-search-id'),
 };
 
-const pagination = new Pagination(container, options);
+const container = document.getElementById(
+  'your-custom-pagination-container-id'
+);
 
-//Callback to switch between pages
-const paginationClick = async event => {
-  const currentPage = event.page;
-  console.log(currentPage);
+let totalPage;
+let itemsPerPage;
+let visiblePage = 3;
+let pageOrigin;
 
-  try {
-    const queryParameters = collectQueryParameters();
-    queryParameters.page = currentPage;
-    const response = await getProductsByQuery(queryParameters);
-    const productForRender = response.results;
-
-    productsListGeneral.innerHTML = '';
-    if (productForRender.length === 0) {
-      const sorryMessage = renderSorryMessage();
-      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
-    } else {
-      renderMarkup(productForRender, 'general', productsListGeneral);
+// витягуємо з localStorage номер сторінки - якщо сторінка була перезавантажена, то потрібно витягнути номер, який був до перезавантаження і
+// активувати пагінацію на цій же сторінці
+function storeData() {
+  const storedData = localStorage.getItem(FILTER);
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      pageOrigin = parsedData.page;
+      itemsPerPage = parsedData.limit;
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
     }
-    let cardsDisc = document.querySelectorAll('.product-card-general');
-    cardsDisc.forEach(card => {
-      card.addEventListener('click', openProductModal);
-    });
-
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    addToCartBtn.forEach(btn => {
-      btn.addEventListener('click', saveToLocalStorage);
-    });
-  } catch (err) {
-    console.log(err);
-    // container.classList.add('is-hidden');
   }
-};
-pagination.on('afterMove', paginationClick);
 
-//Callback to update pagination with new values
-const paginationUpdate = async event => {
-  try {
-    const queryParameters = collectQueryParameters();
-    const response = await getProductsByQuery(queryParameters);
-    if (response.totalPages === 1) {
-      container.classList.add('is-hidden');
-    } else {
-      pagination.setTotalItems(response.totalPages);
-      container.classList.remove('is-hidden');
+  // funcPagination(totalPage);
+
+  // if (totalPage > itemsPerPage) {
+  //   funcPagination(totalPage, pageOrigin);
+  // }
+}
+
+// створення пагінації
+function funcPagination(totalPage) {
+  // console.log(totalPage);
+  let options = {
+    totalItems: totalPage,
+    itemsPerPage: itemsPerPage,
+    visiblePages: visiblePage,
+    page: pageOrigin,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+    template: {
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      currentPage:
+        '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  };
+
+  const pagination = new Pagination(container, options);
+  pagination.on('beforeMove', loadMoreTrendMoves);
+}
+
+// в localStorage змінюємо номер сторінки на обраний номер в пагінації. Очищує картки і знову відтворює нові (нова партія)
+function loadMoreTrendMoves(event) {
+  const storedData = localStorage.getItem(FILTER);
+  if (storedData) {
+    try {
+      const parsedData = JSON.parse(storedData);
+      parsedData.page = Number(`${event.page}`);
+      localStorage.setItem('filter', JSON.stringify(parsedData));
+    } catch (error) {
+      console.error('Error updating localStorage:', error);
     }
-    pagination.reset();
-  } catch (err) {
-    console.log(err);
   }
-};
-document.addEventListener('DOMContentLoaded', paginationUpdate);
+  refs.list.innerHTML = '';
+  fetchAndRender();
+}
 
-const searchForm = document.querySelector('.filters-form');
-searchForm.addEventListener('submit', paginationUpdate);
+// визначаємо, скільки всього буде товарів і викликаємо пагінацію передаючи цей параметр
+async function pages(totalPage) {
+  // let response = await fetchFoodCategory();
+  // totalPage = response.data.totalPages * response.data.perPage;
+  if (totalPage <= Number(itemsPerPage)) {
+    refs.pagination.classList.replace('tui-pagination', 'paginationDop');
+  } else {
+    storeData();
+    refs.pagination.classList.replace('paginationDop', 'tui-pagination');
+  }
+}
