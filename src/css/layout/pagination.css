@@ -35,7 +35,7 @@
   user-select: none;
 }
 
-.tui-ico-ellipsis,
+/* .tui-ico-ellipsis, */
 .tui-ico-first,
 .tui-ico-last,
 .tui-ico-next,
@@ -267,9 +267,9 @@
   display: none !important;
 }
 
-/* .tui-next-is-ellip {
+.tui-next-is-ellip {
   display: none !important;
-} */
+}
 
 .tui-prev-is-ellip {
   display: none !important;
