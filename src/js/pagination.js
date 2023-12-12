@@ -10,7 +10,7 @@ const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
 
 const options = {
-  itemsPerPage: 5,
+  itemsPerPage: 1,
   visiblePages: 4,
   page: 1,
   centerAlign: true,
