@@ -11,7 +11,7 @@ const productsListGeneral = document.querySelector('.products-list-general');
 const options = {
   itemsPerPage,
   visiblePages: 4,
-  page: currentPage,
+  page: 2,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
