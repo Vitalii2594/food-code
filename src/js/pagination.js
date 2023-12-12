@@ -11,7 +11,7 @@ const container = document.querySelector('#tui-pagination-container');
 
 const options = {
   itemsPerPage: 1,
-  visiblePages: 5,
+  visiblePages: 4,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -32,10 +32,22 @@ const options = {
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
+    lastPageTemplate:
+      '<a href="#" class="tui-page-btn tui-last-child tui-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+  // Додаємо обробник події після переміщення на сторінку
+  // для заміни останнього номеру сторінки на "..."
+  afterMove: ellip => {
+    if (ellip.page === ellip.totalPages) {
+      container.querySelector('.tui-last-child').innerHTML =
+        '<span class="tui-ico-ellip">...</span>';
+    }
   },
 };
 
-const pagination = new Pagination(container, options);
+const instance = new tui.Pagination(container, options);
 
 //Callback to switch between pages
 const paginationClick = async event => {
