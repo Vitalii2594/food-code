@@ -1,13 +1,12 @@
 import localStorageAPI from './localStorage.js';
 
-// відмалювання списку категорій
-
+// Відмалювання списку категорій
 export function renderCategoryList(list) {
   // Додаємо категорію "AllProducts" до списку
-  const updatedList = [...list, 'AllProducts'];
+  const updatedList = [...list, 'All'];
 
   const listOfCategory = updatedList.map(item => {
-    return `<li class="filters-categories-item">${item}</li>`;
+    return `<li class="filters-categories-item" data-category="${item}">${item}</li>`;
   });
 
   document
@@ -18,34 +17,24 @@ export function renderCategoryList(list) {
     );
 }
 
-// управління дропдаунів
+// Управління дропдаунами
 export function openDropDown(event) {
   const parentElement = this.closest('.filters-wrap');
   const svgElement = parentElement.querySelector('.filters-down-svg');
   const list = parentElement.querySelector('ul');
 
+  list.classList.toggle('list-active');
+  svgElement.classList.toggle('rotate');
+}
+
+export function rotateButton(event) {
+  this.classList.toggle('rotate');
+  const list = this.previousElementSibling;
+
   if (list.classList.contains('list-active')) {
     list.classList.remove('list-active');
   } else {
     list.classList.add('list-active');
-  }
-  if (svgElement.classList.contains('rotate')) {
-    svgElement.classList.remove('rotate');
-  } else {
-    svgElement.classList.add('rotate');
-  }
-}
-
-export function rotateButton(event) {
-  if (this.classList.contains('rotate')) {
-    this.classList.remove('rotate');
-  } else {
-    this.classList.add('rotate');
-  }
-  if (this.previousElementSibling.classList.contains('list-active')) {
-    this.previousElementSibling.classList.remove('list-active');
-  } else {
-    this.previousElementSibling.classList.add('list-active');
   }
 }
 
@@ -68,7 +57,8 @@ export function changeTypesValue(event) {
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
 }
-//////
+
+// Збір параметрів запиту
 export function collectQueryParameters() {
   const filterSearch = document
     .querySelector('.filters-allTypes')
@@ -78,7 +68,7 @@ export function collectQueryParameters() {
   const categoryElement = document.querySelector('.filters-categories');
   const categoryText = categoryElement.textContent.trim();
   const category =
-    categoryText.toLowerCase() === 'allproducts'
+    categoryText.toLowerCase() === 'all'
       ? ''
       : categoryText.split(' ').join('_').replace('/', '&');
 
@@ -102,9 +92,7 @@ export function collectQueryParameters() {
   return queryParameters;
 }
 
-/////
-
-//визначення фільтра
+// Визначення фільтра
 export function getFilter(arg) {
   let filter;
   switch (arg) {
