@@ -325,3 +325,9 @@
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
+
+.center-ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
