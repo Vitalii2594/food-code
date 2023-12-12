@@ -28,11 +28,13 @@ body {
   position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .product-card-general:hover {
-  box-shadow: 0px 85px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 85px 62px rgba(0, 0, 0, 0.01),
+    0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09),
+    0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
   transform: scale(1.01);
 }
@@ -53,33 +55,6 @@ body {
   width: 100%;
   border-radius: 20px;
   row-gap: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.products-list-general.animation .product-card-general:nth-of-type(3n + 1) {
-  animation-delay: 0s;
-}
-
-.products-list-general.animation .product-card-general:nth-of-type(3n + 2) {
-  animation-delay: 0.5s;
-}
-
-.products-list-general.animation .product-card-general:nth-of-type(3n + 3) {
-  animation-delay: 1s;
 }
 
 .img-wrapper {
@@ -156,7 +131,7 @@ body {
 }
 
 .cart-svg {
-  fill:  var(--white-color);
+  fill: var(--white-color);
 }
 
 /**
@@ -179,50 +154,12 @@ body {
   padding: 12px;
   background-color: var(--card-bg-color);
   position: relative;
-
-  right: -50px;
-  opacity: 0;
-  transform: translateX(50px); 
-  animation: fadeInRight 1s ease-out forwards;
 }
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-    right: -50px;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    right: 0;
-  }
-}
-
-.popular-product-card:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.popular-product-card:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.popular-product-card:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.popular-product-card:nth-child(4) {
-  animation-delay: 1.5s;
-}
-
-.popular-product-card:nth-child(5) {
-  animation-delay: 2s;
-
-}
-
 
 .popular-product-card:hover {
-  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01),
+    0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09),
+    0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
   transform: scale(1.01);
 }
@@ -242,7 +179,6 @@ body {
   background-color: var(--primary-bg-color);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   fill: var(--secondary-bg-green-color);
-
 }
 
 .popular-card-btn:hover,
@@ -337,10 +273,11 @@ body {
   background-color: var(--card-bg-color);
   border-radius: 15px;
   padding: 16px;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 .discount-product-card:hover {
-  box-shadow: 0px 17px 52px rgba(0, 0, 0, 0.05),  0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 17px 52px rgba(0, 0, 0, 0.05),
+    0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
   transform: scale(1.01);
 }
@@ -540,7 +477,6 @@ body {
 
   .discount-img-wrapper {
     margin-bottom: 21px;
-    
   }
 }
 
@@ -560,7 +496,6 @@ body {
     padding-top: 12px;
     row-gap: 40px;
     column-gap: 20px;
-
   }
 
   .product-card-general {
@@ -649,8 +584,6 @@ body {
   .popular-span-container {
     row-gap: 3px;
   }
-
-
 
   /**
         |============================
