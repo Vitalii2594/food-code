@@ -7,7 +7,6 @@ import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
-const container = document.querySelector('#tui-pagination-container');
 
 const options = {
   itemsPerPage: 1,
@@ -33,9 +32,19 @@ const options = {
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
+  events: {
+    // Додаємо обробник подій при зміні сторінки
+    afterMove: function (eventData) {
+      // Перевіряємо, чи це переміщення до наступної сторінки
+      if (eventData.page - eventData.oldPage > 0) {
+        // Якщо так, скасовуємо зміну сторінки і залишаємо активну 2-у сторінку
+        pagination.movePageTo(2);
+      }
+    },
+  },
 };
 
-const pagination = new Pagination(container, options);
+const pagination = new tui.Pagination(container, options);
 
 //Callback to switch between pages
 const paginationClick = async event => {
