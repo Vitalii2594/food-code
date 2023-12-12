@@ -14,7 +14,6 @@ const options = {
   visiblePages: 4,
   page: 1,
   centerAlign: true,
-  ellipsis: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
@@ -29,7 +28,7 @@ const options = {
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </span>`,
-    ellipsis: '<span class="tui-ico-ellips">...</span>',
+    ellipsis: <span class="tui-ico-ellips">...</span>,
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' + '</a>',
   },
