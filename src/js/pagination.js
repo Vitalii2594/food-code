@@ -9,7 +9,7 @@ import { saveToLocalStorage } from './addToCart.js';
 const productsListGeneral = document.querySelector('.products-list-general');
 
 const options = {
-  itemsPerPage,
+  itemsPerPage: 1,
   visiblePages: 4,
   page: 2,
   centerAlign: true,
