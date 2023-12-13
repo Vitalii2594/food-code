@@ -1,8 +1,8 @@
-import localStorageAPI from './localStorage.js';
+import axios from 'axios';
+import * as localStorageAPI from './localStorage.js';
+import { BASE_URL } from './api.js';
 
-// Відмалювання списку категорій
 export function renderCategoryList(list) {
-  // Додаємо категорію "Show all" до списку
   const updatedList = [...list, 'Show all'];
 
   const listOfCategory = updatedList.map(item => {
@@ -18,7 +18,6 @@ export function renderCategoryList(list) {
   console.log('Rendered Category List:', listOfCategory);
 }
 
-// Управління дропдаунами
 export function openDropDown(event) {
   const parentElement = this.closest('.filters-wrap');
   const svgElement = parentElement.querySelector('.filters-down-svg');
@@ -38,49 +37,41 @@ export function rotateButton(event) {
     list.classList.add('list-active');
   }
 }
-// Функція для автоматичного натискання кнопки пошуку
-/* Цю функцію можна перенести до іншого файлу і зробити експорт та імпорт */
+
 function triggerSearchButton() {
-  // Знаходження кнопки пошуку натискання на неї
   const searchButton = document.querySelector('.filters-search-btn');
   if (searchButton) {
     searchButton.click();
   }
 }
-/* Кінець функції */
 
 export function changeCategoriesValue(event) {
   const input = document.querySelector('.filters-categories');
   const list = document.querySelector('.filters-categories-list');
   const newValue = event.target.textContent;
 
-  // Зміна значення введення та деактивація списку та стрілки
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
 
-  // Автоматично натискати кнопку пошуку
-  triggerSearchButton();
+  const queryParameters = collectQueryParameters();
+  makeServerRequestAndUpdatePage(queryParameters);
 }
 
 export function changeTypesValue(event) {
-  // Отримання елементів та нового значення типу
   const input = document.querySelector('.filters-allTypes');
   const list = document.querySelector('.filters-allTypes-list');
   const newValue = event.target.textContent;
 
-  // Зміна значення введення та деактивація списку та стрілки
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
 
-  // Автоматично натискати кнопку пошуку
-  triggerSearchButton();
+  const queryParameters = collectQueryParameters();
+  makeServerRequestAndUpdatePage(queryParameters);
 }
 
-// Збір параметрів запиту
 export function collectQueryParameters() {
-  // Отримання значень фільтрів, категорій та ключового слова
   const filterSearch = document
     .querySelector('.filters-allTypes')
     .textContent.split(' ')
@@ -95,26 +86,12 @@ export function collectQueryParameters() {
 
   const searchWord = document.querySelector('.filters-input').value;
 
-  // Формування об'єкту з параметрами запиту
   const queryParameters = {
     category,
     keyword: searchWord,
     filterSearch: `by${filterSearch}`,
   };
 
-  // Перевірка, чи поточні параметри відмінні від збережених
-  const savedParams = localStorageAPI.load('queryParams');
-  if (
-    savedParams &&
-    savedParams.category === queryParameters.category &&
-    savedParams.keyword === queryParameters.keyword &&
-    savedParams.filterSearch === queryParameters.filterSearch
-  ) {
-    // Повернення null, якщо параметри збігаються
-    return null;
-  }
-
-  // Формування об'єкту для збереження у локальне сховище
   const paramsForBack = {
     category,
     keyword: searchWord,
@@ -123,16 +100,12 @@ export function collectQueryParameters() {
     limit: 9,
   };
 
-  // Збереження параметрів у локальне сховище
   localStorageAPI.save('queryParams', paramsForBack);
 
-  // Повернення об'єкту параметрів
   return queryParameters;
 }
 
-// Визначення фільтра
 export function getFilter(arg) {
-  // Визначення фільтра залежно від отриманого аргументу
   let filter;
   switch (arg) {
     case 'byAtoZ':
@@ -161,6 +134,20 @@ export function getFilter(arg) {
       break;
   }
 
-  // Повернення значення фільтра
   return filter;
 }
+
+async function makeServerRequestAndUpdatePage(queryParameters) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}?${new URLSearchParams(queryParameters)}`
+    );
+
+    console.log('Server response:', response.data);
+    // Додайте код для оновлення вашої сторінки або відображення даних
+  } catch (error) {
+    console.error('Error making server request:', error);
+  }
+}
+
+// Інші функції залишаються такими ж, які були у вашому оригінальному коді
