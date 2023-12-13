@@ -93,7 +93,7 @@ pagination.on('afterMove', paginationClick);
 const paginationUpdate = async event => {
   try {
     // const queryParameters = collectQueryParameters();
-    // const response = await getProductsByQuery(queryParameters);
+    const response = await getProductsByQuery(queryParameters);
     if (response.totalPages === 1) {
       container.classList.add('is-hidden');
     } else {
