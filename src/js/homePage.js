@@ -123,12 +123,19 @@ searchForm.addEventListener('submit', async event => {
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
     productsListGeneral.innerHTML = '';
+
     if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
       productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
     } else {
       renderMarkup(productForRender, 'general', productsListGeneral);
+
+      // Dodaj warunek przed wysłaniem żądania na serwer
+      if (shouldSendToServer()) {
+        await sendToServer(queryParameters);
+      }
     }
+
     let cardsDisc = document.querySelectorAll('.product-card-general');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
@@ -142,6 +149,21 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
+
+// Dodaj nowe funkcje sprawdzające, czy wysłać na serwer
+function shouldSendToServer() {
+  // Tutaj możesz umieścić swoje warunki, np. sprawdzanie, czy użytkownik jest zalogowany, itp.
+  return true;
+}
+
+async function sendToServer(queryParameters) {
+  try {
+    // Tutaj dodaj kod do wysłania danych na serwer
+    console.log('Sending data to server:', queryParameters);
+  } catch (error) {
+    console.error('Error sending data to server:', error);
+  }
+}
 
 // ДОДАВАННЯ ТОВАРУ В КОРЗИНУ З МОДАЛЬНОГО ВІКНА
 

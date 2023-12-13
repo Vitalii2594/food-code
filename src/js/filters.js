@@ -53,8 +53,7 @@ export function changeCategoriesValue(event) {
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
-
-  const queryParameters = collectQueryParameters();
+  triggerSearchButton();
   makeServerRequestAndUpdatePage(queryParameters);
 }
 
@@ -66,8 +65,7 @@ export function changeTypesValue(event) {
   input.textContent = newValue;
   list.classList.remove('list-active');
   list.nextElementSibling.classList.remove('rotate');
-
-  const queryParameters = collectQueryParameters();
+  triggerSearchButton();
   makeServerRequestAndUpdatePage(queryParameters);
 }
 
