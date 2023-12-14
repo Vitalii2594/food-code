@@ -1,10 +1,11 @@
 import Pagination from 'tui-pagination';
-import { getProductsByQuery } from './api.js';
+import { getProductsByQuery, BASE_URL, CACHE_KEY } from './api.js';
 import { renderMarkup } from './model/cards.js';
 import { collectQueryParameters } from './filters.js';
 import { renderSorryMessage } from './model/sorry.js';
 import { openProductModal } from './button-cart.js';
 import { saveToLocalStorage } from './add-to-the-cart.js';
+
 
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
