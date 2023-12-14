@@ -58,48 +58,39 @@ export async function getPopularProducts() {
 }
 
 export async function getProductsByQuery(queryParams) {
-  let response;
-  let { keyword, category, page = 1, limit, filterSearch } = queryParams;
+  try {
+    const { keyword, category, page = 1, filterSearch } = queryParams;
+    const limit = determineLimit();
 
-  // визначення кількості карток в залежності від ширини екрану
+    const params = new URLSearchParams({ limit, page });
 
-  const screenWidth = window.innerWidth;
+    if (keyword) {
+      params.append('keyword', keyword);
+    }
 
-  if (screenWidth < 768) {
-    limit = 6;
-  } else if (screenWidth >= 768 && screenWidth < 1440) {
-    limit = 8;
-  } else {
-    limit = 9;
+    if (category && category !== 'Show_all' && category !== 'Categories') {
+      params.append('category', category);
+    }
+
+    const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-
-  const params = new URLSearchParams({
-    limit,
-    page,
-  });
-
-  if (keyword !== '') {
-    params.append('keyword', keyword);
-  }
-
-  if (category !== '' && category !== 'Show_all' && category !== 'Categories') {
-    params.append('category', category);
-  }
-
-  response = await axios.get(
-    `${BASE_URL}?${params}&${getFilter(filterSearch)}`
-  );
-
-  return response.data;
 }
 
-// get
 export async function getProducttById(id) {
-  const response = await axios.get(
-    `https://food-boutique.b.goit.study/api/products/${id}`
-  );
+  const response = await axios.get(`${BASE_URL}/${id}`);
   return response.data;
 }
+
+function determineLimit() {
+  const screenWidth = window.innerWidth;
+  return screenWidth < 768 ? 6 : screenWidth < 1440 ? 8 : 9;
+}
+
 
 // POST
 export async function registrSubscription(client) {
