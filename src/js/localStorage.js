@@ -1,31 +1,28 @@
-
-
-export const save = (key, value) => {
-    try {
-        const serializedState = JSON.stringify(value);
-        localStorage.setItem(key, serializedState);
-    } catch (error) {
-        console.error("Set state error: ", error.message);
-    }
-    };
-
-export const load = key => {
-    try {
-        const serializedState = localStorage.getItem(key);
-        return serializedState === null ? undefined : JSON.parse(serializedState);
-    } catch (error) {
-        console.error("Get state error: ", error.message);
-    }
-
+export const saveToLocalStorage = (key, data) => {
+  try {
+    const serializedData = JSON.stringify(data);
+    localStorage.setItem(key, serializedData);
+  } catch (error) {
+    console.error("Error saving to local storage: ", error.message);
+  }
 };
 
-export function remove(key) {
-    localStorage.removeItem(key);
+export const loadFromLocalStorage = (key) => {
+  try {
+    const serializedData = localStorage.getItem(key);
+    return serializedData ? JSON.parse(serializedData) : null;
+  } catch (error) {
+    console.error("Error loading from local storage: ", error.message);
+    return null;
+  }
+};
 
-}
+export const removeFromLocalStorage = (key) => {
+  localStorage.removeItem(key);
+};
 
 export default {
-    save,
-    load,
-    remove,
-  };
+  saveToLocalStorage,
+  loadFromLocalStorage,
+  removeFromLocalStorage,
+};
