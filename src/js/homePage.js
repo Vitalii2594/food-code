@@ -15,7 +15,7 @@ import {
   getDiscountProducts,
   getPopularProducts,
   getProducttById,
-  getCategories,
+  getCategories, BASE_URL, CACHE_KEY
 } from './api.js';
 import { renderMarkup } from './model/cards.js';
 import { openProductModal } from './button-cart.js';
