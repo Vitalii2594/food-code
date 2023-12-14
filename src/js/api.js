@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { getFilter } from './filters.js';
 import storage from './local storage.js';
-import { BASE_URL } from './config.js';
 
+const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 const CACHE_KEY = 'cachedProductsResponse';
 
 export async function getCategories() {
