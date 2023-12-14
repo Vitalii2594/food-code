@@ -142,10 +142,9 @@ async function makeServerRequestAndUpdatePage(queryParameters) {
     );
 
     console.log('Server response:', response.data);
-    // Додайте код для оновлення вашої сторінки або відображення даних
+   
   } catch (error) {
     console.error('Error making server request:', error);
   }
 }
 
-// Інші функції залишаються такими ж, які були у вашому оригінальному коді
