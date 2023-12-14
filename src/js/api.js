@@ -1,8 +1,12 @@
-import axios from 'axios';
-import { getFilter } from './filters.js';
-export const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
+
 
 //запит на бекенд про категорії товарів
+import axios from 'axios';
+import { getFilter } from './filters.js';
+import storage from './local storage.js';
+
+export const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
+const CACHE_KEY = 'cachedProductsResponse';
 
 export async function getCategories() {
   const response = await axios.get(
@@ -57,8 +61,22 @@ export async function getPopularProducts() {
   return response.data;
 }
 
+import axios from 'axios';
+import { getFilter } from './filters.js';
+import storage from './local storage.js';
+
+export const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
+const CACHE_KEY = 'cachedProductsResponse';
+
 export async function getProductsByQuery(queryParams) {
   try {
+    // Attempt to load from local storage
+    const cachedProductsResponse = storage.loadFromLocalStorage(CACHE_KEY);
+
+    if (cachedProductsResponse) {
+      return cachedProductsResponse;
+    }
+
     const { keyword, category, page = 1, filterSearch } = queryParams;
     const limit = determineLimit();
 
@@ -74,12 +92,18 @@ export async function getProductsByQuery(queryParams) {
 
     const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
 
+    // Save to local storage
+    storage.saveToLocalStorage(CACHE_KEY, response.data);
+
     return response.data;
   } catch (error) {
     console.error(error);
     throw error;
   }
 }
+
+// Rest of the code...
+
 
 export async function getProducttById(id) {
   const response = await axios.get(`${BASE_URL}/${id}`);
