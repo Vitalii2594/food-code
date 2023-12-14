@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as localStorageAPI from './localStorage.js';
-import { BASE_URL } from './api.js';
-
+import { BASE_URL, CACHE_KEY } from './api.js';
 export function renderCategoryList(list) {
   const updatedList = [...list, 'Show all'];
 
